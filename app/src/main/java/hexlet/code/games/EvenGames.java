@@ -14,7 +14,7 @@ public class EvenGames {
         // выводим пользователю число
         for (var i = 0; i < 3; i++) {
 
-            if(!victory) {
+            if (!victory) {
                 break;
             }
 
