@@ -3,15 +3,12 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EvenGame {
+public class EvenGames {
     // запускает саму игру и привественное сообщение
     public static void playEvenGame() {
         var victory = true;
 
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        var userName = Engine.getName();
-        System.out.println("Hello, " + userName + "!");
+        Engine.cheers();
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
@@ -35,13 +32,13 @@ public class EvenGame {
                         + "\'"
                         + even
                         + '\'');
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.println("Let's try again, " + Engine.getName() + "!");
             }
 
         }
 
         if (victory) {
-            System.out.println("Congratulations, " + userName + "!");
+            System.out.println("Congratulations, " + Engine.getName() + "!");
         }
 
     }
