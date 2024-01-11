@@ -13,6 +13,11 @@ public class Calc {
 
         // выводим пользователю выражение и проверяем его ответ
         for (var i = 0; i < 3; i++) {
+
+            if(!victory) {
+                break;
+            }
+
             var mathSign = getMathSign(Engine.getRandomNumber(3));
             var firstNumber = Engine.getRandomNumber(500);
             var secondNumber = Engine.getRandomNumber(500);
@@ -25,29 +30,11 @@ public class Calc {
                         + " "
                         + secondNumber);
 
-            var answer = Engine.getAnswer();
-
-            victory = Engine.checkAnswer(correctAnswer, answer);
-
-            if (!victory) {
-                System.out.println("Your answer: " + answer);
-                System.out.println("\'"
-                        + answer
-                        + "\'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "\'"
-                        + correctAnswer
-                        + '\'');
-                System.out.println("Let's try again, " + Engine.getName() + "!");
-                break;
-            }
+            victory = Engine.checkAnswer(correctAnswer);
 
         }
 
-        // проверяем условие победы в игре
-        if (victory) {
-            System.out.println("Congratulations, " + Engine.getName() + "!");
-        }
+        Engine.checkVictory(victory);
 
     }
 
