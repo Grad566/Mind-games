@@ -14,7 +14,7 @@ public class Calc {
         // выводим пользователю выражение и проверяем его ответ
         for (var i = 0; i < 3; i++) {
 
-            if(!victory) {
+            if (!victory) {
                 break;
             }
 
