@@ -42,7 +42,7 @@ public class Engine {
     }
 
     // проверяем ответ пользователя
-    public static boolean checkAnswer(String correctAnswer, String userAnswer) {
+    public static boolean compareAnswers(String correctAnswer, String userAnswer) {
         if (correctAnswer.equalsIgnoreCase(userAnswer)) {
             System.out.println("Your answer: " + userAnswer);
             System.out.println("Correct!");
@@ -58,6 +58,34 @@ public class Engine {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         System.out.println("Hello, " + getName() + "!");
+    }
+
+    public static void checkVictory(boolean victory) {
+        if (victory) {
+            System.out.println("Congratulations, " + Engine.getName() + "!");
+        }
+    }
+
+    public static boolean checkAnswer(String correctAnswer) {
+        var answer = Engine.getAnswer();
+        var victory = true;
+
+        victory = Engine.compareAnswers(correctAnswer, answer);
+
+        if (!victory) {
+            System.out.println("Your answer: " + answer);
+            System.out.println("\'"
+                    + answer
+                    + "\'"
+                    + " is wrong answer ;(. Correct answer was "
+                    + "\'"
+                    + correctAnswer
+                    + '\'');
+            System.out.println("Let's try again, " + Engine.getName() + "!");
+            return victory;
+        }
+
+        return victory;
     }
 
 }
