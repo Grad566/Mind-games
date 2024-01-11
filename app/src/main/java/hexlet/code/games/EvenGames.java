@@ -2,9 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class EvenGames {
     // запускает саму игру и привественное сообщение
     public static void playEvenGame() {
@@ -16,32 +13,21 @@ public class EvenGames {
 
         // выводим пользователю число
         for (var i = 0; i < 3; i++) {
+
+            if(!victory) {
+                break;
+            }
+
             var number = Engine.getRandomNumber();
-            var even = checkEvenRandomNumber(number);
+            var correctAnswer = checkEvenRandomNumber(number);
 
             System.out.println("Question: " + number);
 
-            var answer = Engine.getAnswer();
-
-            victory = Engine.checkAnswer(even, answer);
-
-            if (!victory) {
-                System.out.println("Your answer: " + answer);
-                System.out.println("\'"
-                        + answer
-                        + "\'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "\'"
-                        + even
-                        + '\'');
-                System.out.println("Let's try again, " + Engine.getName() + "!");
-            }
+            victory = Engine.checkAnswer(correctAnswer);
 
         }
 
-        if (victory) {
-            System.out.println("Congratulations, " + Engine.getName() + "!");
-        }
+        Engine.checkVictory(victory);
 
     }
 
