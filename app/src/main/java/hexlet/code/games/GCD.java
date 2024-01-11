@@ -12,7 +12,7 @@ public class GCD {
 
         for (var i = 0; i < 3; i++) {
 
-            if(!victory) {
+            if (!victory) {
                 break;
             }
 
