@@ -9,3 +9,6 @@ https://asciinema.org/a/vbbEl755AyZA5RSFDehn2BwuB
 
 Аскинема игры GCD
 https://asciinema.org/a/xuI2iKDJau9lb15PFkg7XwYkR
+
+Аскинема игры Progression
+https://asciinema.org/a/a7wS4RnHFK3AI1QZClkhHSMK1
