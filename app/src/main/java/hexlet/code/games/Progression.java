@@ -18,10 +18,16 @@ public class Progression {
             if (!victory) {
                 break;
             }
-
+            // получаем шаг арифметической прогрессии
             var step = Engine.getRandomNumber(8);
+            // получаем случайный массив с арифм. прогр.
             String[] randomArray = getRandomArray(step);
-            var correctAnswer = getCorrectAnswer(randomArray, step);
+            // получаем номер элемента для замены
+            var randomIndex = Engine.getRandomNumber(randomArray.length - 1);
+            // записываем верный ответ
+            var correctAnswer = randomArray[randomIndex];
+            // получаем массив, который покажем пользователю
+            randomArray = getArrayForUser(randomArray, randomIndex);
             String arrayAsString = String.join(" ", randomArray);
 
             System.out.println("Question: "
@@ -36,7 +42,6 @@ public class Progression {
     }
 
     // получаем массив случайной длины, внутри - случайная арифм. прогрессия
-    // один из элментов заменен на символ ".."
     public static String[] getRandomArray(int step) {
         var initialNumber = Engine.getRandomNumber(100);
         var minLength = 5;
@@ -48,25 +53,12 @@ public class Progression {
             initialNumber += step;
         }
 
-        arrayNumber[Engine.getRandomNumber(arrayLength) - 1] = "..";
-
         return  arrayNumber;
     }
 
-    // находим пропущенный элемент
-    public static String getCorrectAnswer(String[] arrayNumber, int step) {
-        var correctAnswer = 0;
-
-        for (var i = 0; i < arrayNumber.length; i++) {
-            if (arrayNumber[i].equals("..")) {
-                if (i > 0) {
-                    correctAnswer = Integer.parseInt(arrayNumber[i - 1]) + step;
-                } else {
-                    correctAnswer = Integer.parseInt(arrayNumber[i + 1]) - step;
-                }
-            }
-        }
-
-        return String.valueOf(correctAnswer);
+    // меняем один элемент на ".."
+    public static String[] getArrayForUser(String[] arrayNumber, int randomIndex) {
+        arrayNumber[randomIndex] = "..";
+        return arrayNumber;
     }
 }
