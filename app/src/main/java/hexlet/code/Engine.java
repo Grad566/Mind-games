@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Engine {
     private static String userName;
     Engine(String userName) {
-        Engine.userName = getName();
+        userName = getName();
     }
 
     // получаем имя пользователя
@@ -37,8 +37,9 @@ public class Engine {
     // получаем случайно число от 0 до 199999
     public static int getRandomNumber() {
         Random range = new Random();
+        final int maxGeneratedNumber = 100000;
 
-        return range.nextInt(100000);
+        return range.nextInt(maxGeneratedNumber);
     }
 
     // сравниваем ответ пользователя с правильным ответов
@@ -91,6 +92,11 @@ public class Engine {
         }
 
         return victory;
+    }
+
+    public static int getCountOfQuestions() {
+        final int countOfQuestions = 3;
+        return countOfQuestions;
     }
 
 }

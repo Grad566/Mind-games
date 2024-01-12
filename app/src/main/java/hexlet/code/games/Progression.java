@@ -6,6 +6,7 @@ public class Progression {
     // запускает саму игру и привественное сообщение
     public static void playProgression() {
         var victory = true;
+        final int maxStepProgression = 8;
 
         Engine.cheers();
 
@@ -13,13 +14,13 @@ public class Progression {
         // выводим пользователю арифметическую прогрессию
         // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
         // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
 
             if (!victory) {
                 break;
             }
             // получаем шаг арифметической прогрессии
-            var step = Engine.getRandomNumber(8);
+            var step = Engine.getRandomNumber(maxStepProgression);
             // получаем случайный массив с арифм. прогр.
             String[] randomArray = getRandomArray(step);
             // получаем номер элемента для замены
@@ -43,9 +44,11 @@ public class Progression {
 
     // получаем массив случайной длины, внутри - случайная арифм. прогрессия
     public static String[] getRandomArray(int step) {
-        var initialNumber = Engine.getRandomNumber(100);
-        var minLength = 5;
-        String[] arrayNumbers = new String[Engine.getRandomNumber(10) + minLength];
+        final int maxInitialNumber = 100;
+        var initialNumber = Engine.getRandomNumber(maxInitialNumber);
+        final int minLength = 5;
+        final int averageArrayLength = 10;
+        String[] arrayNumbers = new String[Engine.getRandomNumber(averageArrayLength) + minLength];
         var arrayLength = arrayNumbers.length;
 
         for (var i = 0; i < arrayLength; i++) {

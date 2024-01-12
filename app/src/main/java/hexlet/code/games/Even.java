@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class EvenGames {
+public class Even {
     // запускает саму игру и привественное сообщение
     public static void playEven() {
         var victory = true;
@@ -14,7 +14,7 @@ public class EvenGames {
         // выводим пользователю число
         // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
         // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
 
             if (!victory) {
                 break;

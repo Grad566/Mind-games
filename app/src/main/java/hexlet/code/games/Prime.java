@@ -6,6 +6,7 @@ public class Prime {
     // запускает саму игру и привественное сообщение
     public static void playPrime() {
         var victory = true;
+        final int maxRandomNumber = 200;
 
         Engine.cheers();
 
@@ -14,13 +15,13 @@ public class Prime {
         // выводим пользователю число
         // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
         // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
 
             if (!victory) {
                 break;
             }
 
-            var randomNumber = Engine.getRandomNumber(200);
+            var randomNumber = Engine.getRandomNumber(maxRandomNumber);
             var correctAnswer = getCorrectAnswer(randomNumber);
 
             System.out.println("Question: "

@@ -6,6 +6,7 @@ public class GCD {
     // запускает саму игру и привественное сообщение
     public static void playGCD() {
         var victory = true;
+        final int maxNumberGenerated = 200;
 
         Engine.cheers();
 
@@ -14,14 +15,14 @@ public class GCD {
         // выводим пользователю выражение
         // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
         // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
 
             if (!victory) {
                 break;
             }
 
-            var firstNumber = Engine.getRandomNumber(200);
-            var secondNumber = Engine.getRandomNumber(200);
+            var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
+            var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
             var correctAnswer = getCorrectAnswer(firstNumber, secondNumber);
 
             System.out.println("Question: "
