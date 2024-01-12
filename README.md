@@ -12,3 +12,6 @@ https://asciinema.org/a/xuI2iKDJau9lb15PFkg7XwYkR
 
 Аскинема игры Progression
 https://asciinema.org/a/a7wS4RnHFK3AI1QZClkhHSMK1
+
+Аскинема игры Prime
+https://asciinema.org/a/Saq5Hx8EuIRIfsJZ4jY9rY6Q1
