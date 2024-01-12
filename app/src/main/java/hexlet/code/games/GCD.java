@@ -9,7 +9,7 @@ public class GCD {
 
         Engine.cheers();
 
-        System.out.println("Find the greatest common divisor of given numbers");
+        System.out.println("Find the greatest common divisor of given numbers.");
 
         // выводим пользователю выражение
         // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
