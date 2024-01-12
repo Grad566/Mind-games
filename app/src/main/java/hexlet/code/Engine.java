@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Engine {
     private static String userName;
-    Engine(String userName) {
-        Engine.userName = userName;
+    Engine(String inputUserName) {
+        Engine.userName = inputUserName;
     }
 
     // получаем имя пользователя
