@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 public class EvenGames {
     // запускает саму игру и привественное сообщение
-    public static void playEvenGame() {
+    public static void playEven() {
         var victory = true;
 
         Engine.cheers();
@@ -12,6 +12,8 @@ public class EvenGames {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         // выводим пользователю число
+        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
+        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
         for (var i = 0; i < 3; i++) {
 
             if (!victory) {
@@ -27,6 +29,8 @@ public class EvenGames {
 
         }
 
+        // проверяме условие победы
+        // выводим сообещние, если условие true
         Engine.checkVictory(victory);
 
     }

@@ -41,7 +41,8 @@ public class Engine {
         return range.nextInt(100000);
     }
 
-    // проверяем ответ пользователя
+    // сравниваем ответ пользователя с правильным ответов
+    // если ответ верный, выводим сообщение об этом
     public static boolean compareAnswers(String correctAnswer, String userAnswer) {
         if (correctAnswer.equalsIgnoreCase(userAnswer)) {
             System.out.println("Your answer: " + userAnswer);
@@ -60,12 +61,16 @@ public class Engine {
         System.out.println("Hello, " + getName() + "!");
     }
 
+    // проверяем победил ли пользователь
+    // если да, выводим сообщение об этом
     public static void checkVictory(boolean victory) {
         if (victory) {
             System.out.println("Congratulations, " + Engine.getName() + "!");
         }
     }
 
+    // проверяме ответ пользователя
+    // если ответ ложный, выводим сообщение об этом
     public static boolean checkAnswer(String correctAnswer) {
         var answer = Engine.getAnswer();
         var victory = true;

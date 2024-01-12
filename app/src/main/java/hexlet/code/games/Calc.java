@@ -12,6 +12,8 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         // выводим пользователю выражение и проверяем его ответ
+        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
+        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
         for (var i = 0; i < 3; i++) {
 
             if (!victory) {
@@ -21,7 +23,7 @@ public class Calc {
             var mathSign = getMathSign(Engine.getRandomNumber(3));
             var firstNumber = Engine.getRandomNumber(500);
             var secondNumber = Engine.getRandomNumber(500);
-            var correctAnswer = expressionResult(firstNumber, secondNumber, mathSign);
+            var correctAnswer = getExpressionResult(firstNumber, secondNumber, mathSign);
 
             System.out.println("Question: "
                         + firstNumber
@@ -34,6 +36,8 @@ public class Calc {
 
         }
 
+        // проверяме условие победы
+        // выводим сообещние, если условие true
         Engine.checkVictory(victory);
 
     }
@@ -56,7 +60,7 @@ public class Calc {
     }
 
     // получаем результат выражения
-    public static String expressionResult(int firstNumber, int secondNumber, String sign) {
+    public static String getExpressionResult(int firstNumber, int secondNumber, String sign) {
         return switch (sign) {
             case "+" -> {
                 int sum = firstNumber + secondNumber;

@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-
+    // запускает саму игру и привественное сообщение
     public static void playPrime() {
         var victory = true;
 
@@ -11,6 +11,9 @@ public class Prime {
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
+        // выводим пользователю число
+        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
+        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
         for (var i = 0; i < 3; i++) {
 
             if (!victory) {
@@ -27,9 +30,12 @@ public class Prime {
 
         }
 
+        // проверяме условие победы
+        // выводим сообещние, если условие true
         Engine.checkVictory(victory);
     }
 
+    // получаем правильный ответ (простое число или нет)
     public static String getCorrectAnswer(int number) {
 
         for (var i = 2; i <= (number / 2); i++) {

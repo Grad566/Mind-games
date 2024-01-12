@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD {
+    // запускает саму игру и привественное сообщение
     public static void playGCD() {
         var victory = true;
 
@@ -10,6 +11,9 @@ public class GCD {
 
         System.out.println("Find the greatest common divisor of given numbers");
 
+        // выводим пользователю выражение
+        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
+        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
         for (var i = 0; i < 3; i++) {
 
             if (!victory) {
@@ -29,9 +33,12 @@ public class GCD {
 
         }
 
+        // проверяме условие победы
+        // выводим сообещние, если условие true
         Engine.checkVictory(victory);
     }
 
+    // получаем правильный результат выражения
     public static String getCorrectAnswer(int firstNumber, int secondNumber) {
         var smallestNumber = Math.min(firstNumber, secondNumber);
         var biggestNumber = Math.max(firstNumber, secondNumber);

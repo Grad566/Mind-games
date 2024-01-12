@@ -23,7 +23,7 @@ public class App {
                 Engine.cheers();
                 break;
             case 2:
-                EvenGames.playEvenGame();
+                EvenGames.playEven();
                 break;
             case 3:
                 Calc.playCalcGame();

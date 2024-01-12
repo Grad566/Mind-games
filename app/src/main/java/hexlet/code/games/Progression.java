@@ -3,14 +3,16 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
-
+    // запускает саму игру и привественное сообщение
     public static void playProgression() {
         var victory = true;
 
         Engine.cheers();
 
         System.out.println("What number is missing in the progression?");
-
+        // выводим пользователю арифметическую прогрессию
+        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
+        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
         for (var i = 0; i < 3; i++) {
 
             if (!victory) {
@@ -28,10 +30,13 @@ public class Progression {
             victory = Engine.checkAnswer(correctAnswer);
 
         }
-
+        // проверяме условие победы
+        // выводим сообещние, если условие true
         Engine.checkVictory(victory);
     }
 
+    // получаем массив случайной длины, внутри - случайная арифм. прогрессия
+    // один из элментов заменен на символ ".."
     public static String[] getRandomArray(int step) {
         var initialNumber = Engine.getRandomNumber(100);
         var minLength = 5;
@@ -48,6 +53,7 @@ public class Progression {
         return  arrayNumber;
     }
 
+    // находим пропущенный элемент
     public static String getCorrectAnswer(String[] arrayNumber, int step) {
         var correctAnswer = 0;
 
