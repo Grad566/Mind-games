@@ -45,20 +45,20 @@ public class Progression {
     public static String[] getRandomArray(int step) {
         var initialNumber = Engine.getRandomNumber(100);
         var minLength = 5;
-        String[] arrayNumber = new String[Engine.getRandomNumber(10) + minLength];
-        var arrayLength = arrayNumber.length;
+        String[] arrayNumbers = new String[Engine.getRandomNumber(10) + minLength];
+        var arrayLength = arrayNumbers.length;
 
         for (var i = 0; i < arrayLength; i++) {
-            arrayNumber[i] = String.valueOf(initialNumber);
+            arrayNumbers[i] = String.valueOf(initialNumber);
             initialNumber += step;
         }
 
-        return  arrayNumber;
+        return arrayNumbers;
     }
 
     // меняем один элемент на ".."
-    public static String[] getArrayForUser(String[] arrayNumber, int randomIndex) {
-        arrayNumber[randomIndex] = "..";
-        return arrayNumber;
+    public static String[] getArrayForUser(String[] arrayNumbers, int randomIndex) {
+        arrayNumbers[randomIndex] = "..";
+        return arrayNumbers;
     }
 }
