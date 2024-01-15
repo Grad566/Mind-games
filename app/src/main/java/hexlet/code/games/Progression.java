@@ -5,21 +5,15 @@ import hexlet.code.Engine;
 public class Progression {
     // запускает саму игру и привественное сообщение
     public static void playProgression() {
-        var victory = true;
         final int maxStepProgression = 8;
 
         Engine.cheers();
 
         System.out.println("What number is missing in the progression?");
-        // выводим пользователю арифметическую прогрессию
-        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
-        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
-        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
 
-            if (!victory) {
-                break;
-            }
-            // получаем шаг арифметической прогрессии
+        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+
+        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var step = Engine.getRandomNumber(maxStepProgression);
             // получаем случайный массив с арифм. прогр.
             String[] randomArray = getRandomArray(step);
@@ -31,15 +25,10 @@ public class Progression {
             randomArray = getArrayForUser(randomArray, randomIndex);
             String arrayAsString = String.join(" ", randomArray);
 
-            System.out.println("Question: "
-                    + arrayAsString);
-
-            victory = Engine.checkAnswer(correctAnswer);
-
+            QuestionsAndAnswers[i][0] = arrayAsString;
+            QuestionsAndAnswers[i][1] = correctAnswer;
         }
-        // проверяме условие победы
-        // выводим сообещние, если условие true
-        Engine.checkVictory(victory);
+        Engine.playGame(QuestionsAndAnswers);
     }
 
     // получаем массив случайной длины, внутри - случайная арифм. прогрессия
