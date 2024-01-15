@@ -9,16 +9,16 @@ public class Even {
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var number = Engine.getRandomNumber();
             var correctAnswer = checkEvenRandomNumber(number);
 
-            QuestionsAndAnswers[i][0] = String.valueOf(number);
-            QuestionsAndAnswers[i][1] = correctAnswer;
+            questionsAndAnswers[i][0] = String.valueOf(number);
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.playGame(QuestionsAndAnswers);
+        Engine.playGame(questionsAndAnswers);
     }
 
     // определяем четность числа

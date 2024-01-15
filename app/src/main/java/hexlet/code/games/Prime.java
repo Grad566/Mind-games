@@ -11,16 +11,16 @@ public class Prime {
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var randomNumber = Engine.getRandomNumber(maxRandomNumber);
             var correctAnswer = getCorrectAnswer(randomNumber);
 
-            QuestionsAndAnswers[i][0] = String.valueOf(randomNumber);
-            QuestionsAndAnswers[i][1] = correctAnswer;
+            questionsAndAnswers[i][0] = String.valueOf(randomNumber);
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.playGame(QuestionsAndAnswers);
+        Engine.playGame(questionsAndAnswers);
     }
 
     // получаем правильный ответ (простое число или нет)

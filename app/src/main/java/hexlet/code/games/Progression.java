@@ -11,7 +11,7 @@ public class Progression {
 
         System.out.println("What number is missing in the progression?");
 
-        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var step = Engine.getRandomNumber(maxStepProgression);
@@ -25,10 +25,10 @@ public class Progression {
             randomArray = getArrayForUser(randomArray, randomIndex);
             String arrayAsString = String.join(" ", randomArray);
 
-            QuestionsAndAnswers[i][0] = arrayAsString;
-            QuestionsAndAnswers[i][1] = correctAnswer;
+            questionsAndAnswers[i][0] = arrayAsString;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.playGame(QuestionsAndAnswers);
+        Engine.playGame(questionsAndAnswers);
     }
 
     // получаем массив случайной длины, внутри - случайная арифм. прогрессия

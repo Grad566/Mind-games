@@ -11,18 +11,18 @@ public class GCD {
 
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
             var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
             var correctAnswer = getCorrectAnswer(firstNumber, secondNumber);
 
-            QuestionsAndAnswers[i][0] = String.valueOf(firstNumber) + " "
+            questionsAndAnswers[i][0] = String.valueOf(firstNumber) + " "
                         + String.valueOf(secondNumber);
-            QuestionsAndAnswers[i][1] = correctAnswer;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.playGame(QuestionsAndAnswers);
+        Engine.playGame(questionsAndAnswers);
     }
 
     // получаем правильный результат выражения

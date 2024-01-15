@@ -12,7 +12,7 @@ public class Calc {
 
         System.out.println("What is the result of the expression?");
 
-        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var mathSign = getMathSign(Engine.getRandomNumber(countMathSigns));
@@ -20,10 +20,10 @@ public class Calc {
             var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
             var correctAnswer = getExpressionResult(firstNumber, secondNumber, mathSign);
 
-            QuestionsAndAnswers[i][0] = firstNumber + " " + mathSign + " " + secondNumber;
-            QuestionsAndAnswers[i][1] = correctAnswer;
+            questionsAndAnswers[i][0] = firstNumber + " " + mathSign + " " + secondNumber;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.playGame(QuestionsAndAnswers);
+        Engine.playGame(questionsAndAnswers);
     }
 
     // получаем случайный оператор
