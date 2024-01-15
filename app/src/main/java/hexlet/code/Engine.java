@@ -97,7 +97,7 @@ public class Engine {
         return countOfQuestions;
     }
 
-    public static void playGame(String[][] QuestionsAndAnswers) {
+    public static void playGame(String[][] questionsAndAnswers) {
         var victory = true;
 
         for (var i = 0; i < getCountOfQuestions(); i++) {
@@ -105,9 +105,9 @@ public class Engine {
                 break;
             }
 
-            System.out.println("Question: " + QuestionsAndAnswers[i][0]);
+            System.out.println("Question: " + questionsAndAnswers[i][0]);
 
-            victory = Engine.checkAnswer(QuestionsAndAnswers[i][1]);
+            victory = Engine.checkAnswer(questionsAndAnswers[i][1]);
         }
         Engine.checkVictory(victory);
     }
