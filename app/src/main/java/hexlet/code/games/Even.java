@@ -3,7 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    // запускает саму игру и привественное сообщение
+    // выводим привественное сообщение
+    // запускаем игру
     public static void playEven() {
         Engine.cheers();
 
@@ -11,23 +12,14 @@ public class Even {
 
         String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
+        // генерируем массив из вопросов и ответов
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var number = Engine.getRandomNumber();
-            var correctAnswer = checkEvenRandomNumber(number);
+            var correctAnswer = Engine.checkEvenRandomNumber(number);
 
             questionsAndAnswers[i][0] = String.valueOf(number);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.playGame(questionsAndAnswers);
     }
-
-    // определяем четность числа
-    public static String checkEvenRandomNumber(int number) {
-        if (number % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
-    }
-
 }
