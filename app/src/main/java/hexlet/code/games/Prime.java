@@ -3,7 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    // запускает саму игру и привественное сообщение
+    // выводим привественное сообщение
+    // запускаем игру
     public static void playPrime() {
         final int maxRandomNumber = 200;
 
@@ -13,25 +14,14 @@ public class Prime {
 
         String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
+        // генерируем массив из вопросов и ответов
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var randomNumber = Engine.getRandomNumber(maxRandomNumber);
-            var correctAnswer = getCorrectAnswer(randomNumber);
+            var correctAnswer = Engine.checkPrime(randomNumber);
 
             questionsAndAnswers[i][0] = String.valueOf(randomNumber);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.playGame(questionsAndAnswers);
-    }
-
-    // получаем правильный ответ (простое число или нет)
-    public static String getCorrectAnswer(int number) {
-
-        for (var i = 2; i <= (number / 2); i++) {
-            if (number % i == 0) {
-                return "no";
-            }
-        }
-
-        return "yes";
     }
 }
