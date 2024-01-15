@@ -5,7 +5,6 @@ import hexlet.code.Engine;
 public class Calc {
     // запускаем саму игру и привественное сообщение
     public static void playCalcGame() {
-        var victory = true;
         final int countMathSigns = 3;
         final int maxNumberGenerated = 500;
 
@@ -13,35 +12,18 @@ public class Calc {
 
         System.out.println("What is the result of the expression?");
 
-        // выводим пользователю выражение и проверяем его ответ
-        // если ответ ложный, прекращаем игру и выводим сообщение о проигрыше
-        // повторяем трижды, либо до победы, либо до 1-го неправильного ответа
+        String[][] QuestionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
-
-            if (!victory) {
-                break;
-            }
-
             var mathSign = getMathSign(Engine.getRandomNumber(countMathSigns));
             var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
             var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
             var correctAnswer = getExpressionResult(firstNumber, secondNumber, mathSign);
 
-            System.out.println("Question: "
-                        + firstNumber
-                        + " "
-                        + mathSign
-                        + " "
-                        + secondNumber);
-
-            victory = Engine.checkAnswer(correctAnswer);
-
+            QuestionsAndAnswers[i][0] = firstNumber + " " + mathSign + " " + secondNumber;
+            QuestionsAndAnswers[i][1] = correctAnswer;
         }
-
-        // проверяме условие победы
-        // выводим сообещние, если условие true
-        Engine.checkVictory(victory);
-
+        Engine.playGame(QuestionsAndAnswers);
     }
 
     // получаем случайный оператор
