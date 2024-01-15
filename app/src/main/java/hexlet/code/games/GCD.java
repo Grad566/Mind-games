@@ -3,7 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD {
-    // запускает саму игру и привественное сообщение
+    // выводим привественное сообщение
+    // запускаем игру
     public static void playGCD() {
         final int maxNumberGenerated = 200;
 
@@ -13,27 +14,16 @@ public class GCD {
 
         String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
+        // генерируем массив из вопросов и ответов
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
             var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
-            var correctAnswer = getCorrectAnswer(firstNumber, secondNumber);
+            var correctAnswer = Engine.getGCD(firstNumber, secondNumber);
 
             questionsAndAnswers[i][0] = String.valueOf(firstNumber) + " "
                         + String.valueOf(secondNumber);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.playGame(questionsAndAnswers);
-    }
-
-    // получаем правильный результат выражения
-    public static String getCorrectAnswer(int firstNumber, int secondNumber) {
-        var smallestNumber = Math.min(firstNumber, secondNumber);
-        var biggestNumber = Math.max(firstNumber, secondNumber);
-        while (smallestNumber != 0) {
-            int temp = smallestNumber;
-            smallestNumber = biggestNumber % smallestNumber;
-            biggestNumber = temp;
-        }
-        return String.valueOf(biggestNumber);
     }
 }
