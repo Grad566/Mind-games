@@ -3,7 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
-    // запускает саму игру и привественное сообщение
+    // выводим привественное сообщение
+    // запускаем игру
     public static void playProgression() {
         final int maxStepProgression = 8;
 
@@ -13,10 +14,11 @@ public class Progression {
 
         String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
 
+        // генерируем массив из вопросов и ответов
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var step = Engine.getRandomNumber(maxStepProgression);
             // получаем случайный массив с арифм. прогр.
-            String[] randomArray = getRandomArray(step);
+            String[] randomArray = Engine.getRandomArray(step);
             // получаем номер элемента для замены
             var randomIndex = Engine.getRandomNumber(randomArray.length - 1);
             // записываем верный ответ
@@ -30,24 +32,6 @@ public class Progression {
         }
         Engine.playGame(questionsAndAnswers);
     }
-
-    // получаем массив случайной длины, внутри - случайная арифм. прогрессия
-    public static String[] getRandomArray(int step) {
-        final int maxInitialNumber = 100;
-        var initialNumber = Engine.getRandomNumber(maxInitialNumber);
-        final int minLength = 5;
-        final int averageArrayLength = 10;
-        String[] arrayNumbers = new String[Engine.getRandomNumber(averageArrayLength) + minLength];
-        var arrayLength = arrayNumbers.length;
-
-        for (var i = 0; i < arrayLength; i++) {
-            arrayNumbers[i] = String.valueOf(initialNumber);
-            initialNumber += step;
-        }
-
-        return arrayNumbers;
-    }
-
     // меняем один элемент на ".."
     public static String[] getArrayForUser(String[] arrayNumbers, int randomIndex) {
         arrayNumbers[randomIndex] = "..";
