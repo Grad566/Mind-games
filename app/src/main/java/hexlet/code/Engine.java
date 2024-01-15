@@ -16,7 +16,6 @@ public class Engine {
 
             userName = scanner.next();
         }
-
         return userName;
     }
 
@@ -90,13 +89,27 @@ public class Engine {
             System.out.println("Let's try again, " + Engine.getName() + "!");
             return victory;
         }
-
         return victory;
     }
 
     public static int getCountOfQuestions() {
         final int countOfQuestions = 3;
         return countOfQuestions;
+    }
+
+    public static void playGame(String[][] QuestionsAndAnswers) {
+        var victory = true;
+
+        for (var i = 0; i < getCountOfQuestions(); i++) {
+            if (!victory) {
+                break;
+            }
+
+            System.out.println("Question: " + QuestionsAndAnswers[i][0]);
+
+            victory = Engine.checkAnswer(QuestionsAndAnswers[i][1]);
+        }
+        Engine.checkVictory(victory);
     }
 
 }
