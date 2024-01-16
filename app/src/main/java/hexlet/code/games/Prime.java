@@ -17,11 +17,21 @@ public class Prime {
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var randomNumber = Engine.getRandomNumber(maxRandomNumber);
-            var correctAnswer = Engine.checkPrime(randomNumber);
+            var correctAnswer = checkPrime(randomNumber);
 
             questionsAndAnswers[i][0] = String.valueOf(randomNumber);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.playGame(questionsAndAnswers);
+    }
+
+    // Проверям простое ли число
+    public static String checkPrime(int number) {
+        for (var i = 2; i <= (number / 2); i++) {
+            if (number % i == 0) {
+                return "no";
+            }
+        }
+        return "yes";
     }
 }
