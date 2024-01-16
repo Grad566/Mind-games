@@ -15,11 +15,20 @@ public class Even {
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var number = Engine.getRandomNumber();
-            var correctAnswer = Engine.checkEvenRandomNumber(number);
+            var correctAnswer = checkEvenRandomNumber(number);
 
             questionsAndAnswers[i][0] = String.valueOf(number);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.playGame(questionsAndAnswers);
+    }
+
+    // проверяем четность числа
+    public static String checkEvenRandomNumber(int number) {
+        if (number % 2 == 0) {
+            return "yes";
+        } else {
+            return "no";
+        }
     }
 }
