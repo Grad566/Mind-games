@@ -18,12 +18,24 @@ public class GCD {
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
             var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
-            var correctAnswer = Engine.getGCD(firstNumber, secondNumber);
+            var correctAnswer = getGCD(firstNumber, secondNumber);
 
             questionsAndAnswers[i][0] = String.valueOf(firstNumber) + " "
                         + String.valueOf(secondNumber);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.playGame(questionsAndAnswers);
+    }
+
+    // получаем НОД
+    public static String getGCD(int firstNumber, int secondNumber) {
+        var smallestNumber = Math.min(firstNumber, secondNumber);
+        var biggestNumber = Math.max(firstNumber, secondNumber);
+        while (smallestNumber != 0) {
+            int temp = smallestNumber;
+            smallestNumber = biggestNumber % smallestNumber;
+            biggestNumber = temp;
+        }
+        return String.valueOf(biggestNumber);
     }
 }
