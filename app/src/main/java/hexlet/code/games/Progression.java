@@ -18,7 +18,7 @@ public class Progression {
         for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
             var step = Engine.getRandomNumber(maxStepProgression);
             // получаем случайный массив с арифм. прогр.
-            String[] randomArray = Engine.getRandomArray(step);
+            String[] randomArray = getRandomArray(step);
             // получаем номер элемента для замены
             var randomIndex = Engine.getRandomNumber(randomArray.length - 1);
             // записываем верный ответ
@@ -35,6 +35,22 @@ public class Progression {
     // меняем один элемент на ".."
     public static String[] getArrayForUser(String[] arrayNumbers, int randomIndex) {
         arrayNumbers[randomIndex] = "..";
+        return arrayNumbers;
+    }
+
+    // получаем случайный массив с ариф. прогрессией
+    public static String[] getRandomArray(int step) {
+        final int maxInitialNumber = 100;
+        var initialNumber = Engine.getRandomNumber(maxInitialNumber);
+        final int minLength = 5;
+        final int averageArrayLength = 10;
+        String[] arrayNumbers = new String[Engine.getRandomNumber(averageArrayLength) + minLength];
+        var arrayLength = arrayNumbers.length;
+
+        for (var i = 0; i < arrayLength; i++) {
+            arrayNumbers[i] = String.valueOf(initialNumber);
+            initialNumber += step;
+        }
         return arrayNumbers;
     }
 }
