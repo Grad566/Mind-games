@@ -22,14 +22,16 @@ public class App {
         startGame();
     }
 
+    // Принимаем ответ
+    // запускам выбранную игру
     public static void startGame() {
-        var choice = Engine.getAnswer();
+        var choice = Utils.getAnswer();
         System.out.println("You choice: " + choice);
         System.out.println();
 
         switch (choice) {
             case "1":
-                Engine.cheers();
+                Cli.cheers();
                 break;
             case "2":
                 Even.playEven();
