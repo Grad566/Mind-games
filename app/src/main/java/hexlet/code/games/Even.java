@@ -6,11 +6,12 @@ import hexlet.code.Utils;
 public class Even {
     // запускаем игру
     public static void playEven() {
+        final int countOfQuestions = 3;
         var rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] questionsAndAnswers = new String[Utils.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[countOfQuestions][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+        for (var i = 0; i < countOfQuestions; i++) {
             questionsAndAnswers[i] = generateRoundDate();
         }
         Engine.playGame(questionsAndAnswers, rule);

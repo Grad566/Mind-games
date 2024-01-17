@@ -6,11 +6,12 @@ import hexlet.code.Utils;
 public class Prime {
     // запускаем игру
     public static void playPrime() {
+        final int countOfQuestions = 3;
         var rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] questionsAndAnswers = new String[Utils.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[countOfQuestions][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+        for (var i = 0; i < countOfQuestions; i++) {
             questionsAndAnswers[i] = generateRoundDate();
         }
         Engine.playGame(questionsAndAnswers, rule);

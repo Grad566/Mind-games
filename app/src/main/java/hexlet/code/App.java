@@ -25,7 +25,8 @@ public class App {
     // Принимаем ответ
     // запускам выбранную игру
     public static void startGame() {
-        var choice = Utils.getAnswer();
+        Scanner scanner = new Scanner(System.in);
+        var choice = scanner.next();
         System.out.println("You choice: " + choice);
         System.out.println();
 

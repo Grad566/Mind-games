@@ -6,11 +6,12 @@ import hexlet.code.Utils;
 public class Progression {
     // запускаем игру
     public static void playProgression() {
+        final int countOfQuestions = 3;
         var rule = "What number is missing in the progression?";
-        String[][] questionsAndAnswers = new String[Utils.getCountOfQuestions()][2];
+        String[][] questionsAndAnswers = new String[countOfQuestions][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+        for (var i = 0; i < countOfQuestions; i++) {
             questionsAndAnswers[i] = generateRoundDate();
         }
         Engine.playGame(questionsAndAnswers, rule);

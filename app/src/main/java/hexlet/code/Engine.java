@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class Engine {
     // Реализует логику игры
     // Выводим вопрос пользователю
@@ -8,12 +10,13 @@ public class Engine {
     // Выводим сообщение о победе или поражение
     public static void playGame(String[][] questionsAndAnswers, String rules) {
         var victory = true;
+        final int countOfQuestions = 3;
 
-        Cli.cheers();
+        var userName = Cli.cheers();
 
         System.out.println(rules);
 
-        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+        for (var i = 0; i < countOfQuestions; i++) {
             if (!victory) {
                 break;
             }
@@ -22,7 +25,8 @@ public class Engine {
 
             System.out.println("Question: " + questionsAndAnswers[i][0]);
 
-            var answer = Utils.getAnswer();
+            Scanner scanner = new Scanner(System.in);
+            var answer = scanner.next();
 
             if (correctAnswer.equalsIgnoreCase(answer)) {
                 System.out.println("Your answer: " + answer);
@@ -40,11 +44,11 @@ public class Engine {
                         + "\'"
                         + correctAnswer
                         + '\'');
-                System.out.println("Let's try again, " + Utils.getName() + "!");
+                System.out.println("Let's try again, " + userName + "!");
             }
         }
         if (victory) {
-            System.out.println("Congratulations, " + Utils.getName() + "!");
+            System.out.println("Congratulations, " + userName + "!");
         }
     }
 }
