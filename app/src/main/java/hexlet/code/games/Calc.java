@@ -1,31 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
-    // выводим привественное сообщение
     // запускаем игру
     public static void playCalcGame() {
-        final int countMathSigns = 3;
-        final int maxNumberGenerated = 500;
-
-        Engine.cheers();
-
-        System.out.println("What is the result of the expression?");
-
-        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        var rule = "What is the result of the expression?";
+        String[][] questionsAndAnswers = new String[Utils.getCountOfQuestions()][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
-            var mathSign = getMathSign(Engine.getRandomNumber(countMathSigns));
-            var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
-            var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
-            var correctAnswer = getExpressionResult(firstNumber, secondNumber, mathSign);
-
-            questionsAndAnswers[i][0] = firstNumber + " " + mathSign + " " + secondNumber;
-            questionsAndAnswers[i][1] = correctAnswer;
+        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+            questionsAndAnswers[i] = generateRoundDate();
         }
-        Engine.playGame(questionsAndAnswers);
+        Engine.playGame(questionsAndAnswers, rule);
     }
 
     // получаем случайный математический знак
@@ -61,5 +49,22 @@ public class Calc {
                 yield String.valueOf(product);
             }
         };
+    }
+
+    // Генерируем вопрос и ответ на один раунд
+    public static String[] generateRoundDate() {
+        final int countMathSigns = 3;
+        final int maxNumberGenerated = 500;
+        String[] roundDate = new String[2];
+
+        var mathSign = getMathSign(Utils.getRandomNumber(countMathSigns));
+        var firstNumber = Utils.getRandomNumber(maxNumberGenerated);
+        var secondNumber = Utils.getRandomNumber(maxNumberGenerated);
+        var correctAnswer = getExpressionResult(firstNumber, secondNumber, mathSign);
+
+        roundDate[0] = firstNumber + " " + mathSign + " " + secondNumber;
+        roundDate[1] = correctAnswer;
+
+        return roundDate;
     }
 }
