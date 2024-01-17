@@ -1,26 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
-    // выводим привественное сообщение
     // запускаем игру
     public static void playEven() {
-        Engine.cheers();
-
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        var rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] questionsAndAnswers = new String[Utils.getCountOfQuestions()][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
-            var number = Engine.getRandomNumber();
-            var correctAnswer = checkEvenRandomNumber(number);
-
-            questionsAndAnswers[i][0] = String.valueOf(number);
-            questionsAndAnswers[i][1] = correctAnswer;
+        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+            questionsAndAnswers[i] = generateRoundDate();
         }
-        Engine.playGame(questionsAndAnswers);
+        Engine.playGame(questionsAndAnswers, rule);
     }
 
     // проверяем четность числа
@@ -30,5 +23,18 @@ public class Even {
         } else {
             return "no";
         }
+    }
+
+    // Генерируем вопрос и ответ на один раунд
+    public static String[] generateRoundDate() {
+        String[] roundDate = new String[2];
+
+        var number = Utils.getRandomNumber();
+        var correctAnswer = checkEvenRandomNumber(number);
+
+        roundDate[0] = String.valueOf(number);
+        roundDate[1] = correctAnswer;
+
+        return roundDate;
     }
 }
