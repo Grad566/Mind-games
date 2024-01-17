@@ -1,30 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
-    // выводим привественное сообщение
     // запускаем игру
     public static void playGCD() {
-        final int maxNumberGenerated = 200;
-
-        Engine.cheers();
-
-        System.out.println("Find the greatest common divisor of given numbers.");
-
-        String[][] questionsAndAnswers = new String[Engine.getCountOfQuestions()][2];
+        var rule = "Find the greatest common divisor of given numbers.";
+        String[][] questionsAndAnswers = new String[Utils.getCountOfQuestions()][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < Engine.getCountOfQuestions(); i++) {
-            var firstNumber = Engine.getRandomNumber(maxNumberGenerated);
-            var secondNumber = Engine.getRandomNumber(maxNumberGenerated);
-            var correctAnswer = getGCD(firstNumber, secondNumber);
-
-            questionsAndAnswers[i][0] = String.valueOf(firstNumber) + " "
-                        + String.valueOf(secondNumber);
-            questionsAndAnswers[i][1] = correctAnswer;
+        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
+            questionsAndAnswers[i] = generateRoundDate();
         }
-        Engine.playGame(questionsAndAnswers);
+        Engine.playGame(questionsAndAnswers, rule);
     }
 
     // получаем НОД
@@ -37,5 +26,21 @@ public class GCD {
             biggestNumber = temp;
         }
         return String.valueOf(biggestNumber);
+    }
+
+    // Генерируем вопрос и ответ на один раунд
+    public static String[] generateRoundDate() {
+        final int maxNumberGenerated = 200;
+
+        String[] roundDate = new String[2];
+
+        var firstNumber = Utils.getRandomNumber(maxNumberGenerated);
+        var secondNumber = Utils.getRandomNumber(maxNumberGenerated);
+        var correctAnswer = getGCD(firstNumber, secondNumber);
+
+        roundDate[0] = String.valueOf(firstNumber) + " " + String.valueOf(secondNumber);
+        roundDate[1] = correctAnswer;
+
+        return roundDate;
     }
 }
