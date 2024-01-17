@@ -4,116 +4,51 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private static String userName;
-    Engine(String inputUserName) {
-        Engine.userName = inputUserName;
-    }
-
-    // получаем имя пользователя
-    public static String getName() {
-        if (userName == null) {
-            Scanner scanner = new Scanner(System.in);
-
-            userName = scanner.next();
-        }
-        return userName;
-    }
-
-    // получаем ответ пользователя
-    public static String getAnswer() {
-        Scanner scanner = new Scanner(System.in);
-
-        return scanner.next();
-    }
-
-    // получаем случайное число в заданном диапазоне
-    public static int getRandomNumber(int max) {
-        Random range = new Random();
-
-        return range.nextInt(max) + 1;
-    }
-
-    // получаем случайно число от 0 до 199999
-    public static int getRandomNumber() {
-        Random range = new Random();
-        final int maxGeneratedNumber = 100000;
-
-        return range.nextInt(maxGeneratedNumber);
-    }
-
-    // сравниваем ответ пользователя с правильным ответов
-    // если ответ верный, выводим сообщение об этом
-    public static boolean compareAnswers(String correctAnswer, String userAnswer) {
-        if (correctAnswer.equalsIgnoreCase(userAnswer)) {
-            System.out.println("Your answer: " + userAnswer);
-            System.out.println("Correct!");
-
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // выводим приветсвенное сообщение
-    public static void cheers() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        System.out.println("Hello, " + getName() + "!");
-    }
-
-    // проверяем победил ли пользователь
-    // если да, выводим сообщение об этом
-    public static void checkVictory(boolean victory) {
-        if (victory) {
-            System.out.println("Congratulations, " + Engine.getName() + "!");
-        }
-    }
-
-    // проверяме ответ пользователя
-    // если ответ ложный, выводим сообщение об этом
-    public static boolean checkAnswer(String correctAnswer) {
-        var answer = Engine.getAnswer();
+    // Реализует логику игры
+    // Выводим вопрос пользователю
+    // Получаем ответ пользователя
+    // Сравниваем ответы
+    // Выводим сообщение о победе или поражение
+    public static void playGame(String[][] questionsAndAnswers, String rules) {
         var victory = true;
 
-        victory = Engine.compareAnswers(correctAnswer, answer);
+        Cli.cheers();
 
-        if (!victory) {
-            System.out.println("Your answer: " + answer);
-            System.out.println("\'"
-                    + answer
-                    + "\'"
-                    + " is wrong answer ;(. Correct answer was "
-                    + "\'"
-                    + correctAnswer
-                    + '\'');
-            System.out.println("Let's try again, " + Engine.getName() + "!");
-            return victory;
-        }
-        return victory;
-    }
+        System.out.println(rules);
 
-    // возращаем кол-во вопросов для пользовльвотеля
-    public static int getCountOfQuestions() {
-        final int countOfQuestions = 3;
-        return countOfQuestions;
-    }
-
-    // Сверяем ответы пользователя с правильными ответами
-    // Если правильно выводим победное сообщение
-    // Если неправильно, выводим сообщение об ошибке
-    public static void playGame(String[][] questionsAndAnswers) {
-        var victory = true;
-
-        for (var i = 0; i < getCountOfQuestions(); i++) {
+        for (var i = 0; i < Utils.getCountOfQuestions(); i++) {
             if (!victory) {
                 break;
             }
 
+            var correctAnswer = questionsAndAnswers[i][1];
+
             System.out.println("Question: " + questionsAndAnswers[i][0]);
 
-            victory = Engine.checkAnswer(questionsAndAnswers[i][1]);
+            var answer = Utils.getAnswer();
+
+            if (correctAnswer.equalsIgnoreCase(answer)) {
+                System.out.println("Your answer: " + answer);
+                System.out.println("Correct!");
+            } else {
+                victory = false;
+            }
+
+            if (!victory) {
+                System.out.println("Your answer: " + answer);
+                System.out.println("\'"
+                        + answer
+                        + "\'"
+                        + " is wrong answer ;(. Correct answer was "
+                        + "\'"
+                        + correctAnswer
+                        + '\'');
+                System.out.println("Let's try again, " + Utils.getName() + "!");
+            }
         }
-        Engine.checkVictory(victory);
+        if (victory) {
+            System.out.println("Congratulations, " + Utils.getName() + "!");
+        }
     }
 }
 
