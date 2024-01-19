@@ -35,20 +35,11 @@ public class Calc {
     }
 
     // получаем результат матем. выражения
-    public static String getExpressionResult(int firstNumber, int secondNumber, String sign) {
+    public static int getExpressionResult(int firstNumber, int secondNumber, String sign) {
         return switch (sign) {
-            case "+" -> {
-                int sum = firstNumber + secondNumber;
-                yield String.valueOf(sum);
-            }
-            case "-" -> {
-                int difference = firstNumber - secondNumber;
-                yield String.valueOf(difference);
-            }
-            default -> {
-                int product = firstNumber * secondNumber;
-                yield String.valueOf(product);
-            }
+            case "+" -> firstNumber + secondNumber;
+            case "-" -> firstNumber - secondNumber;
+            default -> firstNumber * secondNumber;
         };
     }
 
@@ -61,7 +52,7 @@ public class Calc {
         var mathSign = getMathSign(Utils.getRandomNumber(countMathSigns));
         var firstNumber = Utils.getRandomNumber(maxNumberGenerated);
         var secondNumber = Utils.getRandomNumber(maxNumberGenerated);
-        var correctAnswer = getExpressionResult(firstNumber, secondNumber, mathSign);
+        var correctAnswer = String.valueOf(getExpressionResult(firstNumber, secondNumber, mathSign));
 
         roundDate[0] = firstNumber + " " + mathSign + " " + secondNumber;
         roundDate[1] = correctAnswer;
