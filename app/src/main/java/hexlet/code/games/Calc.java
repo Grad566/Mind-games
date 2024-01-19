@@ -23,7 +23,7 @@ public class Calc {
     // получаем случайный математический знак
     public static char getMathSign(int randomNumber) {
         char[] mathSigns = {'+', '-', '*'};
-        return mathSigns[randomNumber];
+        return mathSigns[randomNumber - 1];
     }
 
     // получаем результат матем. выражения
@@ -31,7 +31,8 @@ public class Calc {
         return switch (sign) {
             case '+' -> firstNumber + secondNumber;
             case '-' -> firstNumber - secondNumber;
-            default -> firstNumber * secondNumber;
+            case '*' -> firstNumber * secondNumber;
+            default -> throw new Error("Unknown sign!");
         };
     }
 
