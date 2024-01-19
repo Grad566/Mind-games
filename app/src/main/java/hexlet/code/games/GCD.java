@@ -4,14 +4,14 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GCD {
+    public static final int ROUNDS_COUNT = 3;
     // запускаем игру
     public static void playGCD() {
-        final int countOfQuestions = 3;
         var rule = "Find the greatest common divisor of given numbers.";
-        String[][] questionsAndAnswers = new String[countOfQuestions][2];
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < countOfQuestions; i++) {
+        for (var i = 0; i < ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundDate();
         }
         Engine.playGame(questionsAndAnswers, rule);

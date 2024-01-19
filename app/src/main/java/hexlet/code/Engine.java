@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int ROUNDS_COUNT = 3;
     // Реализует логику игры
     // Выводим вопрос пользователю
     // Получаем ответ пользователя
@@ -10,13 +11,11 @@ public class Engine {
     // Выводим сообщение о победе или поражение
     public static void playGame(String[][] questionsAndAnswers, String rules) {
         var victory = true;
-        final int countOfQuestions = 3;
-
         var userName = Cli.cheers();
 
         System.out.println(rules);
 
-        for (var i = 0; i < countOfQuestions; i++) {
+        for (var i = 0; i < ROUNDS_COUNT; i++) {
             if (!victory) {
                 break;
             }
