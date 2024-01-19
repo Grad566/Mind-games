@@ -35,15 +35,9 @@ public class Engine {
             }
 
             if (!victory) {
-                System.out.println("Your answer: " + answer);
-                System.out.println("\'"
-                        + answer
-                        + "\'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "\'"
-                        + correctAnswer
-                        + '\'');
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.printf("Your answer: %s%n", answer);
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'", answer, correctAnswer);
+                System.out.println(String.format("Let's try again, %s!", userName));
             }
         }
         if (victory) {
