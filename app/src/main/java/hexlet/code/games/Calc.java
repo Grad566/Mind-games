@@ -40,7 +40,7 @@ public class Calc {
         String[] roundDate = new String[2];
 
         var mathSign = getMathSign(Utils.getRandomNumber(COUNT_MATH_SIGNS));
-        var firstNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED;
+        var firstNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var secondNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var correctAnswer = String.valueOf(getExpressionResult(firstNumber, secondNumber, mathSign));
 
