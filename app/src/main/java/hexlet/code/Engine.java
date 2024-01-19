@@ -10,16 +10,11 @@ public class Engine {
     // Сравниваем ответы
     // Выводим сообщение о победе или поражение
     public static void playGame(String[][] questionsAndAnswers, String rules) {
-        var victory = true;
         var userName = Cli.cheers();
 
         System.out.println(rules);
 
         for (var i = 0; i < ROUNDS_COUNT; i++) {
-            if (!victory) {
-                break;
-            }
-
             var correctAnswer = questionsAndAnswers[i][1];
 
             System.out.println("Question: " + questionsAndAnswers[i][0]);
@@ -31,18 +26,13 @@ public class Engine {
                 System.out.println("Your answer: " + answer);
                 System.out.println("Correct!");
             } else {
-                victory = false;
-            }
-
-            if (!victory) {
                 System.out.printf("Your answer: %s%n", answer);
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'", answer, correctAnswer);
                 System.out.println(String.format("Let's try again, %s!", userName));
+                return;
             }
         }
-        if (victory) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        System.out.println("Congratulations, " + userName + "!");
     }
 }
 
