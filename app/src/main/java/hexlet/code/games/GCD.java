@@ -18,7 +18,7 @@ public class GCD {
     }
 
     // получаем НОД
-    public static String getGCD(int firstNumber, int secondNumber) {
+    public static int getGCD(int firstNumber, int secondNumber) {
         var smallestNumber = Math.min(firstNumber, secondNumber);
         var biggestNumber = Math.max(firstNumber, secondNumber);
         while (smallestNumber != 0) {
@@ -26,7 +26,7 @@ public class GCD {
             smallestNumber = biggestNumber % smallestNumber;
             biggestNumber = temp;
         }
-        return String.valueOf(biggestNumber);
+        return biggestNumber;
     }
 
     // Генерируем вопрос и ответ на один раунд
@@ -37,9 +37,9 @@ public class GCD {
 
         var firstNumber = Utils.getRandomNumber(maxNumberGenerated);
         var secondNumber = Utils.getRandomNumber(maxNumberGenerated);
-        var correctAnswer = getGCD(firstNumber, secondNumber);
+        var correctAnswer = String.valueOf(getGCD(firstNumber, secondNumber));
 
-        roundDate[0] = String.valueOf(firstNumber) + " " + String.valueOf(secondNumber);
+        roundDate[0] = firstNumber + " " + secondNumber;
         roundDate[1] = correctAnswer;
 
         return roundDate;
