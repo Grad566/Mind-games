@@ -18,27 +18,16 @@ public class Calc {
     }
 
     // получаем случайный математический знак
-    public static String getMathSign(int randomNumber) {
-        String mathSign = "";
-        switch (randomNumber) {
-            case 1:
-                mathSign = "+";
-                break;
-            case 2:
-                mathSign = "-";
-                break;
-            default:
-                mathSign = "*";
-                break;
-        }
-        return mathSign;
+    public static char getMathSign(int randomNumber) {
+        char[] mathSigns = {'+', '-', '*'};
+        return mathSigns[randomNumber];
     }
 
     // получаем результат матем. выражения
-    public static int getExpressionResult(int firstNumber, int secondNumber, String sign) {
+    public static int getExpressionResult(int firstNumber, int secondNumber, char sign) {
         return switch (sign) {
-            case "+" -> firstNumber + secondNumber;
-            case "-" -> firstNumber - secondNumber;
+            case '+' -> firstNumber + secondNumber;
+            case '-' -> firstNumber - secondNumber;
             default -> firstNumber * secondNumber;
         };
     }
