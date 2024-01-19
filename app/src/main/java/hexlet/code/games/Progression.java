@@ -16,7 +16,7 @@ public class Progression {
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
-            questionsAndAnswers[i] = generateRoundDate();
+            questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, rule);
     }
@@ -40,7 +40,7 @@ public class Progression {
     }
 
     // Генерируем вопрос и ответ на один раунд
-    public static String[] generateRoundDate() {
+    public static String[] generateRoundData() {
         String[] roundDate = new String[2];
 
         // получаем случайный массив с арифм. прогр.

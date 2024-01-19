@@ -12,7 +12,7 @@ public class Prime {
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
-            questionsAndAnswers[i] = generateRoundDate();
+            questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, rule);
     }
@@ -28,7 +28,7 @@ public class Prime {
     }
 
     // Генерируем вопрос и ответ на один раунд
-    public static String[] generateRoundDate() {
+    public static String[] generateRoundData() {
         final int maxRandomNumber = 200;
 
         String[] roundDate = new String[2];

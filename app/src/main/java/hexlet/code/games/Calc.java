@@ -12,7 +12,7 @@ public class Calc {
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
-            questionsAndAnswers[i] = generateRoundDate();
+            questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, rule);
     }
@@ -53,7 +53,7 @@ public class Calc {
     }
 
     // Генерируем вопрос и ответ на один раунд
-    public static String[] generateRoundDate() {
+    public static String[] generateRoundData() {
         final int countMathSigns = 3;
         final int maxNumberGenerated = 500;
         String[] roundDate = new String[2];

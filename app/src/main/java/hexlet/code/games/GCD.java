@@ -12,7 +12,7 @@ public class GCD {
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
-            questionsAndAnswers[i] = generateRoundDate();
+            questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, rule);
     }
@@ -30,7 +30,7 @@ public class GCD {
     }
 
     // Генерируем вопрос и ответ на один раунд
-    public static String[] generateRoundDate() {
+    public static String[] generateRoundData() {
         final int maxNumberGenerated = 200;
 
         String[] roundDate = new String[2];
