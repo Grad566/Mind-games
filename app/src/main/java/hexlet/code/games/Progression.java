@@ -21,12 +21,6 @@ public class Progression {
         Engine.playGame(questionsAndAnswers, RULE);
     }
 
-    // меняем один элемент на ".."
-    public static String[] getArrayForUser(String[] arrayNumbers, int randomIndex) {
-        arrayNumbers[randomIndex] = "..";
-        return arrayNumbers;
-    }
-
     // получаем случайный массив с ариф. прогрессией
     public static String[] getRandomArray(int step, int initialNumber, int progressionLength) {
         String[] arrayNumbers = new String[progressionLength];
@@ -54,7 +48,7 @@ public class Progression {
         // записываем верный ответ
         var correctAnswer = randomArray[randomIndex];
         // получаем массив, который покажем пользователю
-        randomArray = getArrayForUser(randomArray, randomIndex);
+        randomArray[randomIndex] = "..";
         String arrayAsString = String.join(" ", randomArray);
 
         roundDate[0] = arrayAsString;
