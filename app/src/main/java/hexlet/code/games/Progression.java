@@ -9,16 +9,16 @@ public class Progression {
     public static final int MAX_INITIAL_NUMBER = 100;
     public static final int MIN_PROGRESSION_LENGTH = 5;
     public static final int AVERAGE_PROGRESSION_LENGTH = 10;
+    public static final String RULE = "What number is missing in the progression?";
     // запускаем игру
     public static void playProgression() {
-        var rule = "What number is missing in the progression?";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.playGame(questionsAndAnswers, rule);
+        Engine.playGame(questionsAndAnswers, RULE);
     }
 
     // меняем один элемент на ".."

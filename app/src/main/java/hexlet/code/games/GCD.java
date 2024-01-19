@@ -5,16 +5,16 @@ import hexlet.code.Utils;
 
 public class GCD {
     public static final int ROUNDS_COUNT = 3;
+    public static final String RULE = "Find the greatest common divisor of given numbers.";
     // запускаем игру
     public static void playGCD() {
-        var rule = "Find the greatest common divisor of given numbers.";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.playGame(questionsAndAnswers, rule);
+        Engine.playGame(questionsAndAnswers, RULE);
     }
 
     // получаем НОД

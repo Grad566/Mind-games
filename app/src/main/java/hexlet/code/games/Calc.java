@@ -5,16 +5,16 @@ import hexlet.code.Utils;
 
 public class Calc {
     public static final int ROUNDS_COUNT = 3;
+    public static final String RULE = "What is the result of the expression?";
     // запускаем игру
     public static void playCalcGame() {
-        var rule = "What is the result of the expression?";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.playGame(questionsAndAnswers, rule);
+        Engine.playGame(questionsAndAnswers, RULE);
     }
 
     // получаем случайный математический знак

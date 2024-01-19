@@ -5,16 +5,16 @@ import hexlet.code.Utils;
 
 public class Even {
     public static final int ROUNDS_COUNT = 3;
+    public static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     // запускаем игру
     public static void playEven() {
-        var rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.playGame(questionsAndAnswers, rule);
+        Engine.playGame(questionsAndAnswers, RULE);
     }
 
     // проверяем четность числа
