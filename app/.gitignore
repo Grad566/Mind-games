@@ -46,3 +46,9 @@ bin/
 Makefile
 demo.cast
 demo.calc
+../.tool-versions
+config/
+demo.even
+demo.gcd
+demo.prime
+demo.progression
