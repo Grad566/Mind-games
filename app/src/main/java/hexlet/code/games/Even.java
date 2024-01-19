@@ -18,12 +18,8 @@ public class Even {
     }
 
     // проверяем четность числа
-    public static String checkEvenRandomNumber(int number) {
-        if (number % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 
     // Генерируем вопрос и ответ на один раунд
@@ -31,7 +27,7 @@ public class Even {
         String[] roundDate = new String[2];
 
         var number = Utils.getRandomNumber();
-        var correctAnswer = checkEvenRandomNumber(number);
+        var correctAnswer = isEven(number) ? "yes" : "no";
 
         roundDate[0] = String.valueOf(number);
         roundDate[1] = correctAnswer;
