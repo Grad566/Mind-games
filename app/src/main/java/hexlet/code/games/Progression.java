@@ -5,6 +5,10 @@ import hexlet.code.Utils;
 
 public class Progression {
     public static final int ROUNDS_COUNT = 3;
+    public static final int MAX_STEP_PROGRESSION = 8;
+    public static final int MAX_INITIAL_NUMBER = 100;
+    public static final int MIN_PROGRESSION_LENGTH = 5;
+    public static final int AVERAGE_PROGRESSION_LENGTH = 10;
     // запускаем игру
     public static void playProgression() {
         var rule = "What number is missing in the progression?";
@@ -24,12 +28,8 @@ public class Progression {
     }
 
     // получаем случайный массив с ариф. прогрессией
-    public static String[] getRandomArray(int step) {
-        final int maxInitialNumber = 100;
-        final int minLength = 5;
-        final int averageArrayLength = 10;
-        var initialNumber = Utils.getRandomNumber(maxInitialNumber);
-        String[] arrayNumbers = new String[Utils.getRandomNumber(averageArrayLength) + minLength];
+    public static String[] getRandomArray(int step, int initialNumber, int progressionLength) {
+        String[] arrayNumbers = new String[progressionLength];
         var arrayLength = arrayNumbers.length;
 
         for (var i = 0; i < arrayLength; i++) {
@@ -41,13 +41,14 @@ public class Progression {
 
     // Генерируем вопрос и ответ на один раунд
     public static String[] generateRoundDate() {
-        final int maxStepProgression = 8;
-
         String[] roundDate = new String[2];
 
-        var step = Utils.getRandomNumber(maxStepProgression);
         // получаем случайный массив с арифм. прогр.
-        String[] randomArray = getRandomArray(step);
+        var step = Utils.getRandomNumber(MAX_STEP_PROGRESSION);
+        var initialNumber = Utils.getRandomNumber(MAX_INITIAL_NUMBER);
+        var progressionLength = Utils.getRandomNumber(AVERAGE_PROGRESSION_LENGTH)
+                    + MIN_PROGRESSION_LENGTH;
+        String[] randomArray = getRandomArray(step, initialNumber, progressionLength);
         // получаем номер элемента для замены
         var randomIndex = Utils.getRandomNumber(randomArray.length - 1);
         // записываем верный ответ
