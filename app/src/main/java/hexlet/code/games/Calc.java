@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    public static final int COUNT_MATH_SIGNS = 3;
     public static final int MAX_NUMBER_GENERATED = 500;
+    public static final char[] MATH_SIGNS = {'+', '-', '*'};
 
     public static final String RULE = "What is the result of the expression?";
     // запускаем игру
@@ -19,19 +19,13 @@ public class Calc {
         Engine.playGame(questionsAndAnswers, RULE);
     }
 
-    // получаем случайный математический знак
-    public static char getMathSign(int randomNumber) {
-        char[] mathSigns = {'+', '-', '*'};
-        return mathSigns[randomNumber - 1];
-    }
-
     // получаем результат матем. выражения
     public static int getExpressionResult(int firstNumber, int secondNumber, char sign) {
         return switch (sign) {
             case '+' -> firstNumber + secondNumber;
             case '-' -> firstNumber - secondNumber;
             case '*' -> firstNumber * secondNumber;
-            default -> throw new Error("Unknown sign!");
+            default -> throw new RuntimeException("Unknown sign!");
         };
     }
 
@@ -39,7 +33,7 @@ public class Calc {
     public static String[] generateRoundData() {
         String[] roundDate = new String[2];
 
-        var mathSign = getMathSign(Utils.getRandomNumber(COUNT_MATH_SIGNS));
+        var mathSign = MATH_SIGNS[Utils.getRandomNumber(MATH_SIGNS.length) - 1];
         var firstNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var secondNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var correctAnswer = String.valueOf(getExpressionResult(firstNumber, secondNumber, mathSign));
