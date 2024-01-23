@@ -34,8 +34,6 @@ public class Progression {
 
     // Генерируем вопрос и ответ на один раунд
     public static String[] generateRoundData() {
-        String[] roundDate = new String[2];
-
         // получаем случайный массив с арифм. прогр.
         var step = Utils.getRandomNumber(MAX_STEP_PROGRESSION);
         var initialNumber = Utils.getRandomNumber(MAX_INITIAL_NUMBER);
@@ -50,9 +48,6 @@ public class Progression {
         randomArray[randomIndex] = "..";
         String arrayAsString = String.join(" ", randomArray);
 
-        roundDate[0] = arrayAsString;
-        roundDate[1] = correctAnswer;
-
-        return roundDate;
+        return new String[]{arrayAsString, correctAnswer};
     }
 }

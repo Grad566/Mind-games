@@ -31,16 +31,11 @@ public class Calc {
 
     // Генерируем вопрос и ответ на один раунд
     public static String[] generateRoundData() {
-        String[] roundDate = new String[2];
-
         var mathSign = MATH_SIGNS[Utils.getRandomNumber(MATH_SIGNS.length) - 1];
         var firstNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var secondNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var correctAnswer = String.valueOf(getExpressionResult(firstNumber, secondNumber, mathSign));
 
-        roundDate[0] = firstNumber + " " + mathSign + " " + secondNumber;
-        roundDate[1] = correctAnswer;
-
-        return roundDate;
+        return new String[]{firstNumber + " " + mathSign + " " + secondNumber, correctAnswer};
     }
 }

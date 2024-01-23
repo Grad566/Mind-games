@@ -24,13 +24,9 @@ public class Even {
     // Генерируем вопрос и ответ на один раунд
     public static String[] generateRoundData() {
         String[] roundDate = new String[2];
-
         var number = Utils.getRandomNumber();
         var correctAnswer = isEven(number) ? "yes" : "no";
 
-        roundDate[0] = String.valueOf(number);
-        roundDate[1] = correctAnswer;
-
-        return roundDate;
+        return new String[]{String.valueOf(number), correctAnswer};
     }
 }

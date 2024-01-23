@@ -31,16 +31,10 @@ public class GCD {
     // Генерируем вопрос и ответ на один раунд
     public static String[] generateRoundData() {
         final int maxNumberGenerated = 200;
-
-        String[] roundDate = new String[2];
-
         var firstNumber = Utils.getRandomNumber(maxNumberGenerated);
         var secondNumber = Utils.getRandomNumber(maxNumberGenerated);
         var correctAnswer = String.valueOf(getGCD(firstNumber, secondNumber));
 
-        roundDate[0] = firstNumber + " " + secondNumber;
-        roundDate[1] = correctAnswer;
-
-        return roundDate;
+        return new String[]{firstNumber + " " + secondNumber, correctAnswer};
     }
 }

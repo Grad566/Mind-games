@@ -33,14 +33,9 @@ public class Prime {
     public static String[] generateRoundData() {
         final int maxRandomNumber = 200;
 
-        String[] roundDate = new String[2];
-
         var randomNumber = Utils.getRandomNumber(maxRandomNumber);
         var correctAnswer = isPrime(randomNumber) ? "yes" : "no";
 
-        roundDate[0] = String.valueOf(randomNumber);
-        roundDate[1] = correctAnswer;
-
-        return roundDate;
+        return new String[]{String.valueOf(randomNumber), correctAnswer};
     }
 }
