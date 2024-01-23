@@ -20,8 +20,8 @@ public class Progression {
         Engine.playGame(questionsAndAnswers, RULE);
     }
 
-    // получаем случайный массив с ариф. прогрессией
-    public static String[] getRandomArray(int step, int initialNumber, int progressionLength) {
+    // получаем массив с ариф. прогрессией
+    public static String[] getProgression(int step, int initialNumber, int progressionLength) {
         String[] arrayNumbers = new String[progressionLength];
         var arrayLength = arrayNumbers.length;
 
@@ -41,7 +41,7 @@ public class Progression {
         var initialNumber = Utils.getRandomNumber(MAX_INITIAL_NUMBER);
         var progressionLength = Utils.getRandomNumber(AVERAGE_PROGRESSION_LENGTH)
                     + MIN_PROGRESSION_LENGTH;
-        String[] randomArray = getRandomArray(step, initialNumber, progressionLength);
+        String[] randomArray = getProgression(step, initialNumber, progressionLength);
         // получаем номер элемента для замены
         var randomIndex = Utils.getRandomNumber(randomArray.length - 1);
         // записываем верный ответ
