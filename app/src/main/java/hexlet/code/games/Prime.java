@@ -4,14 +4,13 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Prime {
-    public static final int ROUNDS_COUNT = 3;
     public static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     // запускаем игру
     public static void playPrime() {
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < ROUNDS_COUNT; i++) {
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, RULE);

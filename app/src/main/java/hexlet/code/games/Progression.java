@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    public static final int ROUNDS_COUNT = 3;
     public static final int MAX_STEP_PROGRESSION = 8;
     public static final int MAX_INITIAL_NUMBER = 100;
     public static final int MIN_PROGRESSION_LENGTH = 5;
@@ -12,10 +11,10 @@ public class Progression {
     public static final String RULE = "What number is missing in the progression?";
     // запускаем игру
     public static void playProgression() {
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < ROUNDS_COUNT; i++) {
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, RULE);

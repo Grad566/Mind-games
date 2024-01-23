@@ -4,17 +4,16 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    public static final int ROUNDS_COUNT = 3;
     public static final int COUNT_MATH_SIGNS = 3;
     public static final int MAX_NUMBER_GENERATED = 500;
 
     public static final String RULE = "What is the result of the expression?";
     // запускаем игру
     public static void playCalcGame() {
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         // генерируем массив из вопросов и ответов
-        for (var i = 0; i < ROUNDS_COUNT; i++) {
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
             questionsAndAnswers[i] = generateRoundData();
         }
         Engine.playGame(questionsAndAnswers, RULE);
