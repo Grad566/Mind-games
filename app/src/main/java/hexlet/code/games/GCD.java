@@ -34,7 +34,8 @@ public class GCD {
         var firstNumber = Utils.getRandomNumber(maxNumberGenerated);
         var secondNumber = Utils.getRandomNumber(maxNumberGenerated);
         var correctAnswer = String.valueOf(getGCD(firstNumber, secondNumber));
+        var question = firstNumber + " " + secondNumber;
 
-        return new String[]{firstNumber + " " + secondNumber, correctAnswer};
+        return new String[]{question, correctAnswer};
     }
 }

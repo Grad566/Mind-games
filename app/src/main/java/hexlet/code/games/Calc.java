@@ -35,7 +35,8 @@ public class Calc {
         var firstNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var secondNumber = Utils.getRandomNumber(MAX_NUMBER_GENERATED);
         var correctAnswer = String.valueOf(getExpressionResult(firstNumber, secondNumber, mathSign));
+        var question = firstNumber + " " + mathSign + " " + secondNumber;
 
-        return new String[]{firstNumber + " " + mathSign + " " + secondNumber, correctAnswer};
+        return new String[]{question, correctAnswer};
     }
 }
