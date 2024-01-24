@@ -16,3 +16,17 @@ https://asciinema.org/a/a7wS4RnHFK3AI1QZClkhHSMK1
 
 Аскинема игры Prime
 https://asciinema.org/a/Saq5Hx8EuIRIfsJZ4jY9rY6Q1
+
+Сборка проекта
+gradle installDist
+или
+./build/install/app/bin/app
+
+Запуск проект
+gradle run
+
+Запуск преокта через Makefile
+make run-dist
+
+Проверка линтером
+gradle checkstyleMain
