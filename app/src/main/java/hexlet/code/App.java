@@ -31,26 +31,15 @@ public class App {
         System.out.println();
 
         switch (choice) {
-            case "1":
-                Cli.cheers();
+            case "1" -> Cli.cheers();
+            case "2" -> Even.playEven();
+            case "3" -> Calc.playCalcGame();
+            case "4" -> GCD.playGCD();
+            case "5" -> Progression.playProgression();
+            case "6" -> Prime.playPrime();
+            default -> {
                 break;
-            case "2":
-                Even.playEven();
-                break;
-            case "3":
-                Calc.playCalcGame();
-                break;
-            case "4":
-                GCD.playGCD();
-                break;
-            case "5":
-                Progression.playProgression();
-                break;
-            case "6":
-                Prime.playPrime();
-                break;
-            default:
-                break;
+            }
         }
     }
 }
