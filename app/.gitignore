@@ -43,7 +43,6 @@ bin/
 .DS_Store
 
 ### other ###
-Makefile
 demo.cast
 demo.calc
 ../.tool-versions
