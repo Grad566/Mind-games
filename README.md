@@ -1,32 +1,27 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Grad566/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Grad566/java-project-61/actions)
-<a href="https://codeclimate.com/github/Grad566/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/4a9872fdad3e12bcf6c7/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/4a9872fdad3e12bcf6c7/maintainability)](https://codeclimate.com/github/Grad566/java-project-61/maintainability)
 
-Аскинема игры Evan
-https://asciinema.org/a/UWn88Bt1RcmbId4BUx8kFilN1
+#### Asciinema for the game "Even":
+[Watch Even Game Asciinema](https://asciinema.org/a/GIP0TtcgccL0SzkqFo5HfiE2p)
 
-Аскинема игры Calc
-https://asciinema.org/a/vbbEl755AyZA5RSFDehn2BwuB
+#### Asciinema for the game "Calc":
+[Watch Calc Game Asciinema](https://asciinema.org/a/UTEkroRYpgyy1grIvrUjdt5e0)
 
-Аскинема игры GCD
-https://asciinema.org/a/xuI2iKDJau9lb15PFkg7XwYkR
+#### Asciinema for the game "GCD":
+[Watch GCD Game Asciinema](https://asciinema.org/a/zD5haJCJ1OFP6TuZe9Uz2ORgU)
 
-Аскинема игры Progression
-https://asciinema.org/a/a7wS4RnHFK3AI1QZClkhHSMK1
+#### Asciinema for the game "Progression":
+[Watch Progression Game Asciinema](https://asciinema.org/a/a7wS4RnHFK3AI1QZClkhHSMK1)
 
-Аскинема игры Prime
-https://asciinema.org/a/Saq5Hx8EuIRIfsJZ4jY9rY6Q1
+#### Asciinema for the game "Prime":
+[Watch Prime Game Asciinema](https://asciinema.org/a/Saq5Hx8EuIRIfsJZ4jY9rY6Q1)
 
-Сборка проекта
-gradle installDist
-или
-./build/install/app/bin/app
+#### Project Build:
+- To build the project: `gradle installDist` or `./build/install/app/bin/app`
+- To run the project: `gradle run`
+- To run the project via Makefile: `make run-dist`
+- To check with linter: `gradle checkstyleMain`
 
-Запуск проект
-gradle run
-
-Запуск преокта через Makefile
-make run-dist
-
-Проверка линтером
-gradle checkstyleMain
+#### About the Project:
+"Mind Games" is a collection of five console games, designed based on popular brain-training mobile applications. Each game asks questions that require correct answers. After three correct answers, the game is considered passed. Incorrect answers end the game and suggest starting over.
